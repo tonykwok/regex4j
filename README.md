@@ -1,45 +1,36 @@
-﻿## Welcome to Regex4j!
+## Welcome to Regex4j!
 
 Regex4j is a Java port of System.Text.RegularExpressions module of Microsoft's .Net Core Libraries.
 
 ## Getting Started
 
-The usage of regex4j is much samilar as System.Text.RegularExpressions:
+The usage of regex4j is much samilar as System.Text.RegularExpressions, here're some tips for you to quick start:
+
+> **Tips**
+>- Regex4j does not support verbatim string literals, that's to say, you have to add ```\``` explicitly when you try to translate some regex patterns from ```C#``` to ```Java```;
+>- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range is ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off;
+>- Regex4j does not support ```array-like``` element accessing by neither index nor name, alternatively, you can use ```#get(...)```to get whay you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```;
+>- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.getValue()```;
+>- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, do not forget this when switching your role from ```C#``` to ```Java```;
+
+> **Example**
+
+The example uses the ```Match.result(String)``` method to return the protocol followed by a colon followed by the port number.
 
 * C#
 
 ```c#
+using System;
+using System.Text.RegularExpressions;
+
 public class Application {
     public static void Main() {
-        string[] emailAddresses = { "david.jones@proseware.com", "d.j@server1.proseware.com",
-                              "jones@ms1.proseware.com", "j.@server1.proseware.com",
-                              "j@proseware.com9", "js#internal@proseware.com",
-                              "j_9@[129.126.118.1]", "j..s@proseware.com",
-                              "js*@proseware.com", "js@proseware..com",
-                              "js@proseware.com9", "j.s@server1.proseware.com",
-                               "\"j\\\"s\\\"\"@proseware.com", "js@contoso.中国" };
+        string url = "http://www.contoso.com:8080/letters/readme.html";
+        Regex r = new Regex(@"^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/", RegexOptions.None, TimeSpan.FromMilliseconds(150));
+        Match m = r.Match(url);
 
-        foreach (var emailAddress in emailAddresses) {
-            if (isValidEmail(emailAddress)) {
-                Console.WriteLine("Valid: {0}", emailAddress);
-            } else {
-                Console.WriteLine("Invalid: {0}", emailAddress);
-            }
-        }
-    }
-
-    private static final bool isValidEmail(string emailAddress) {
-        if (String.IsNullOrEmpty(emailAddress))
-            return false;
-
-        // Return true if emailAddress is in valid e-mail format.
-        try {
-            return Regex.IsMatch(emailAddress,
-                    @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                    @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
-                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
-        } catch (RegexMatchTimeoutException) {
-            return false;
+        if (m.Success) {
+            Console.WriteLine(r.Match(url).Result("${proto}${port}"));
         }
     }
 }
@@ -48,37 +39,16 @@ public class Application {
 * Java
 
 ```java
+import jxtras.regex4j.Regex;
+
 public class Application {
     public static void main(String... args) {
-        string[] emailAddresses = { "david.jones@proseware.com", "d.j@server1.proseware.com",
-                                  "jones@ms1.proseware.com", "j.@server1.proseware.com",
-                                  "j@proseware.com9", "js#internal@proseware.com",
-                                  "j_9@[129.126.118.1]", "j..s@proseware.com",
-                                  "js*@proseware.com", "js@proseware..com",
-                                  "js@proseware.com9", "j.s@server1.proseware.com",
-                                   "\"j\\\"s\\\"\"@proseware.com", "js@contoso.中国" };
+        String url = "http://www.contoso.com:8080/letters/readme.html";
+        Regex r = new Regex("^(?<proto>\\w+)://[^/]+?(?<port>:\\d+)?/", RegexOptions.None, 150 /* millisecond */);
+        Match m = r.match(url);
 
-        for (String emailAddress : emailAddresses) {
-            if (isValidEmail(emailAddress)) {
-                System.out.println("Valid: " + emailAddress);
-            } else {
-                System.out.println("Invalid: " + emailAddress);
-            }
-        }
-    }
-
-    private static final boolean isValidEmail(String emailAddress) {
-        if (emailAddress == null || emailAddress.length() == 0)
-            return false;
-
-        // Return true if emailAddress is in valid e-mail format.
-        try {
-            return Regex.isMatch(emailAddress,
-                    @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                    @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
-                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
-        } catch (RegexMatchTimeoutException exc) {
-            return false;
+        if (m.Success) {
+            System.out.println(r.match(url).result("${proto}${port}"));
         }
     }
 }
@@ -86,44 +56,37 @@ public class Application {
 
 Both of these 2 examples display the same following output:
 
-        Valid: david.jones@proseware.com
-        Valid: d.j@server1.proseware.com
-        Valid: jones@ms1.proseware.com
-        Invalid: j.@server1.proseware.com
-        Valid: j@proseware.com9
-        Valid: js#internal@proseware.com
-        Valid: j_9@[129.126.118.1]
-        Invalid: j..s@proseware.com
-        Invalid: js*@proseware.com
-        Invalid: js@proseware..com
-        Valid: js@proseware.com9
-        Valid: j.s@server1.proseware.com
-        Valid: "j\"s\""@proseware.com
-        Valid: js@contoso.中国
+        http:8080
 
-In this example, the regular expression pattern ```^(?(")(".+?(?<!\\)"@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$``` is interpreted as shown in the following table:
+In this example, the regular expression pattern ```^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/``` is interpreted as shown in the following table:
 
-| Pattern | Description
-|:--------|:-----------
-```^``` | Begin the match at the start of the string.
-```(?(")``` | Determine whether the first character is a quotation mark. ```(?(")``` is the beginning of an alternation construct.
-```(?("")("".+?(?<!\\)""@)``` | If the first character is a quotation mark, match a beginning quotation mark followed by at least one occurrence of any character, followed by an ending quotation mark. The ending quotation mark must not be preceded by a backslash character (```\```). ```(?<!``` is the beginning of a zero-width negative lookbehind assertion. The string should conclude with an at sign (```@```).
-```|(([0-9a-z]``` | If the first character is not a quotation mark, match any alphabetic character from ```a``` to ```z``` or ```A``` to ```Z``` (the comparison is case insensitive), or any numeric character from ```0``` to ```9```.
-```(\.(?!\.))``` | If the next character is a period, match it. If it is not a period, look ahead to the next character and continue the match. ```(?!\.)``` is a zero-width negative lookahead assertion that prevents two consecutive periods from appearing in the local part of an email address.
-```mmm``` | If the next character is not a period, match any word character or one of the following characters: ```-!#$%'*+=?^`{}|~```.
-```((\.(?!\.))|[-!#\$%'\*\+/=\?\^`\{\}\|~\w])*``` | Match the alternation pattern (a period followed by a non-period, or one of a number of characters) zero or more times.
-```@``` | Match the ```@``` character.
-```(?<=[0-9a-z])``` | Continue the match if the character that precedes the ```@``` character is ```A``` through ```Z```, ```a``` through ```z```, or ```0``` through ```9```. The ```(?<=[0-9a-z])``` construct defines a zero-width positive lookbehind assertion.
-```(?(\[)``` | Check whether the character that follows ```@``` is an opening bracket.
-```(\[(\d{1,3}\.){3}\d{1,3}\])``` | If it is an opening bracket, match the opening bracket followed by an IP address (four sets of one to three digits, with each set separated by a period) and a closing bracket.
-```|(([0-9a-z][-\w]*[0-9a-z]*\.)+``` | If the character that follows ```@``` is not an opening bracket, match one alphanumeric character with a value of ```A```-```Z```, ```a```-```z```, or ```0```-```9```, followed by zero or more occurrences of a word character or a hyphen, followed by zero or one alphanumeric character with a value of ```A```-```Z```, ```a```-```z```, or ```0```-```9```, followed by a period. This pattern can be repeated one or more times, and must be followed by the top-level domain name.
-```[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))``` | The top-level domain name must begin and end with an alphanumeric character (```a```-```z```, ```A```-```Z```, and ```0```-```9```). It can also include from zero to 22 ASCII characters that are either alphanumeric or hyphens.
-```$``` | End the match at the end of the string.
+| Pattern            | Description
+|:-------------------|:-----------
+```^```              |Begin the match at the start of the string.
+```(?<proto>\w+)```  | Match one or more word characters. Name this group proto.
+```://```            | Match a colon followed by two slash marks.
+```[^/]+?```         | Match one or more occurrences (but as few as possible) of any character other than a slash mark.
+```(?<port>:\d+)?``` | Match zero or one occurrence of a colon followed by one or more digit characters. Name this group port.
+```/```              | Match a slash mark.
 
-> **Note** The regular expression is compiled using the ```RegexOptions.IgnoreCase``` flag.
+The example uses the ```Match.result(String)``` method with two substitutions, ```${proto}``` and ```${port}```, to include the captured groups in the output string. You can retrieve the captured groups from the match's ```GroupCollection``` object instead, as the following code shows.
+
+* C#
+```c#
+Console.WriteLine(m.Groups["proto"].Value + m.Groups["port"].Value);
+```
+* Java
+```java
+System.out.println(m.groups().get("proto").value() + m.groups().get("port").value());
+```
 
 ## Limitations
 
 * Regex4j does not support ```CultureInfo```, though Java owns a coresponding class called ```Locale```, they're different definately!
-* Regex4j does not support verbatim string literals, that's to say, you need to add "```\```" explicitly when you try to translate some patterns from C# to Java!
 * Regex4j does not completely support Unicode, it may contain some unexpected issue, so use at your own risk!
+* ...
+
+## Copyright
+
+* Copyright (C) 2015 The JXTRAS Project Authors. All rights reserved.
+* Copyright (c) .NET Foundation and Contributors
