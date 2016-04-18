@@ -1,6 +1,6 @@
 ## Welcome to Regex4j!
 
-Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's .Net Core Libraries written in Java to compensate for shortages of the built-in ```Pattern``` class, meanwhile, avoid the known ```StackOverflowError``` issues, such as [#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476), which has been in the ```java.util.regex``` package since Java 1.4 and still exist in latest JDK.
+Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's .Net Core Libraries written in Java to compensate for the shortages of ```Pattern``` class, meanwhile, avoid the known ```StackOverflowError``` issues, such as [#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476), which has been in the ```java.util.regex``` package since Java 1.4 and still exist in latest JDK.
 
 ## Getting Started
 
@@ -13,7 +13,7 @@ The usage of Regex4j is much samilar as ```System.Text.RegularExpressions```, he
 >- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```;
 >- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when you switch role from C# to Java;
 
-The following example uses the ```Match.result(String)``` method to return the protocol followed by a colon followed by the port number.
+The following example demonstrates how to extract the protocol and port number from an ```URL``` and return the protocol followed by a colon followed by the port number.
 
 * C#
 
@@ -28,7 +28,7 @@ public class Application {
         Match m = r.Match(url);
 
         if (m.Success) {
-            Console.WriteLine(r.Match(url).Result("${proto}${port}"));
+            Console.WriteLine(m.Groups["proto"].Value + m.Groups["port"].Value);
         }
     }
 }
@@ -46,7 +46,7 @@ public class Application {
         Match m = r.match(url);
 
         if (m.Success) {
-            System.out.println(r.match(url).result("${proto}${port}"));
+            System.out.println(m.groups().get("proto").value() + m.groups().get("port").value());
         }
     }
 }
@@ -67,22 +67,11 @@ In this example, the regular expression pattern ```^(?<proto>\w+)://[^/]+?(?<por
 ```(?<port>:\d+)?``` | Match zero or one occurrence of a colon followed by one or more digit characters. Name this group port.
 ```/```              | Match a slash mark.
 
-The example uses the ```Match.result(String)``` method with two substitutions, ```${proto}``` and ```${port}```, to include the captured groups in the output string. You can retrieve the captured groups from the match's ```GroupCollection``` object instead, as the following code shows.
+Here're some topics on ```Regular Expression Optimization```, just for your reference.
 
-* C#
-```c#
-Console.WriteLine(m.Groups["proto"].Value + m.Groups["port"].Value);
-```
-* Java
-```java
-System.out.println(m.groups().get("proto").value() + m.groups().get("port").value());
-```
-
-Here are some webpages focusing on ```Regular Expression Optimization```, just for your reference.
-
-* http://www.javaworld.com/article/2077757/core-java/optimizing-regular-expressions-in-java.html
-* http://www.informit.com/guides/content.aspx?g=dotnet&seqNum=692
-* https://msdn.microsoft.com/en-us/library/gg578045(v=vs.110).aspx?cs-save-lang=1&cs-lang=vb#code-snippet-1
+>* http://www.javaworld.com/article/2077757/core-java/optimizing-regular-expressions-in-java.html
+>* http://www.informit.com/guides/content.aspx?g=dotnet&seqNum=692
+>* https://msdn.microsoft.com/en-us/library/gg578045(v=vs.110).aspx?cs-save-lang=1&cs-lang=vb#code-snippet-1
 
 ## Limitations
 
