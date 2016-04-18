@@ -1,21 +1,19 @@
 ## Welcome to Regex4j!
 
-Regex4j is a Java port of System.Text.RegularExpressions module of Microsoft's .Net Core Libraries.
+Regex4j is a port of System.Text.RegularExpressions module of Microsoft's .Net Core Libraries to strengthen the built-in regex engine in JDK and meanwhile avoid the known issues, such as #123456 and #789456.
 
 ## Getting Started
 
-The usage of regex4j is much samilar as System.Text.RegularExpressions, here're some tips for you to quick start:
+The usage of regex4j is much samilar as System.Text.RegularExpressions, here're some tips for you to get started:
 
 > **Tips**
 >- Regex4j does not support verbatim string literals, that's to say, you have to add ```\``` explicitly when you try to translate some regex patterns from ```C#``` to ```Java```;
 >- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range is ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off;
 >- Regex4j does not support ```array-like``` element accessing by neither index nor name, alternatively, you can use ```#get(...)```to get whay you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```;
->- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.getValue()```;
+>- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```;
 >- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, do not forget this when switching your role from ```C#``` to ```Java```;
 
-> **Example**
-
-The example uses the ```Match.result(String)``` method to return the protocol followed by a colon followed by the port number.
+The following example uses the ```Match.result(String)``` method to return the protocol followed by a colon followed by the port number.
 
 * C#
 
