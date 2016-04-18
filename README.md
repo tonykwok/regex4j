@@ -78,6 +78,11 @@ Console.WriteLine(m.Groups["proto"].Value + m.Groups["port"].Value);
 System.out.println(m.groups().get("proto").value() + m.groups().get("port").value());
 ```
 
+## Regular Expression Optimization
+* http://www.javaworld.com/article/2077757/core-java/optimizing-regular-expressions-in-java.html
+* http://www.informit.com/guides/content.aspx?g=dotnet&seqNum=692
+* https://msdn.microsoft.com/en-us/library/gg578045(v=vs.110).aspx?cs-save-lang=1&cs-lang=vb#code-snippet-1
+
 ## Limitations
 
 * Regex4j does not support ```CultureInfo```, though Java has its own coresponding class called ```Locale```, they're different definately;
