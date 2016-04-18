@@ -7,11 +7,11 @@ Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's 
 The usage of regex4j is much samilar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
 
 > **Tips**
->- Regex4j does not support verbatim string literals, that's to say, you have to add ```\``` explicitly when you try to translate some regex patterns from ```C#``` to ```Java```;
+>- Regex4j does not support verbatim string literals, that's to say, you have to add ```\``` explicitly when you try to translate some regex patterns from C# to Java;
 >- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range are ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off;
 >- Regex4j does not support ```array-like``` element accessing either by index or by name, alternatively, you can use ```#get(...)```to archive what you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```;
 >- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```;
->- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when you switch role from ```C#``` to ```Java```;
+>- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when you switch role from C# to Java;
 
 The following example uses the ```Match.result(String)``` method to return the protocol followed by a colon followed by the port number.
 
@@ -78,7 +78,8 @@ Console.WriteLine(m.Groups["proto"].Value + m.Groups["port"].Value);
 System.out.println(m.groups().get("proto").value() + m.groups().get("port").value());
 ```
 
-## Regular Expression Optimization
+Here are some webpages focusing on ```Regular Expression Optimization```, just for your reference.
+
 * http://www.javaworld.com/article/2077757/core-java/optimizing-regular-expressions-in-java.html
 * http://www.informit.com/guides/content.aspx?g=dotnet&seqNum=692
 * https://msdn.microsoft.com/en-us/library/gg578045(v=vs.110).aspx?cs-save-lang=1&cs-lang=vb#code-snippet-1
