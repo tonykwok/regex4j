@@ -1,17 +1,17 @@
 ## Welcome to Regex4j!
 
-Regex4j is a port of System.Text.RegularExpressions module of Microsoft's .Net Core Libraries to strengthen the built-in regex engine in JDK and meanwhile avoid the known issues, such as #123456 and #789456.
+Regex4j is a port of System.Text.RegularExpressions module of Microsoft's .Net Core Libraries written in Java to compensate for shortages of the built-in java.util.regex package, meanwhile, avoid the known issues, such as [#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476), which still exist in latest JDK.
 
 ## Getting Started
 
-The usage of regex4j is much samilar as System.Text.RegularExpressions, here're some tips for you to get started:
+The usage of regex4j is much samilar as System.Text.RegularExpressions, here're some tips for you to get started quickly:
 
 > **Tips**
 >- Regex4j does not support verbatim string literals, that's to say, you have to add ```\``` explicitly when you try to translate some regex patterns from ```C#``` to ```Java```;
 >- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range is ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off;
->- Regex4j does not support ```array-like``` element accessing by neither index nor name, alternatively, you can use ```#get(...)```to get whay you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```;
+>- Regex4j does not support ```array-like``` element accessing by either index or name, alternatively, you can use ```#get(...)```to get whay you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```;
 >- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```;
->- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, do not forget this when switching your role from ```C#``` to ```Java```;
+>- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when you switch role from ```C#``` to ```Java```;
 
 The following example uses the ```Match.result(String)``` method to return the protocol followed by a colon followed by the port number.
 
@@ -80,8 +80,9 @@ System.out.println(m.groups().get("proto").value() + m.groups().get("port").valu
 
 ## Limitations
 
-* Regex4j does not support ```CultureInfo```, though Java owns a coresponding class called ```Locale```, they're different definately!
+* Regex4j does not support ```CultureInfo```, though Java has its own coresponding class called ```Locale```, they're different definately!
 * Regex4j does not completely support Unicode, it may contain some unexpected issue, so use at your own risk!
+* Regex4j does not support 
 * ...
 
 ## Copyright
