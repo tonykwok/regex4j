@@ -1,10 +1,10 @@
 ## Welcome to Regex4j!
 
-Regex4j is a port of System.Text.RegularExpressions module of Microsoft's .Net Core Libraries written in Java to compensate for shortages of the built-in ```Pattern``` class, meanwhile, avoid the known ```StackOverflowError``` issues, such as [#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476), which has been in the java.util.regex package since Java 1.4 and still exist in latest JDK.
+Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's .Net Core Libraries written in Java to compensate for shortages of the built-in ```Pattern``` class, meanwhile, avoid the known ```StackOverflowError``` issues, such as [#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476), which has been in the ```java.util.regex``` package since Java 1.4 and still exist in latest JDK.
 
 ## Getting Started
 
-The usage of regex4j is much samilar as System.Text.RegularExpressions, here're some tips for you to get started quickly:
+The usage of regex4j is much samilar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
 
 > **Tips**
 >- Regex4j does not support verbatim string literals, that's to say, you have to add ```\``` explicitly when you try to translate some regex patterns from ```C#``` to ```Java```;
@@ -80,9 +80,9 @@ System.out.println(m.groups().get("proto").value() + m.groups().get("port").valu
 
 ## Limitations
 
-* Regex4j does not support ```CultureInfo```, though Java has its own coresponding class called ```Locale```, they're different definately!
-* Regex4j does not completely support Unicode, it may contain some unexpected issue, so use at your own risk!
-* Regex4j does not support regex compilation, e.g. RegexOptions.Compiled, RegexOptions.Precompiled and Regex.compileToAssemble()
+* Regex4j does not support ```CultureInfo```, though Java has its own coresponding class called ```Locale```, they're different definately;
+* Regex4j does not completely support Unicode, it may contain some unexpected issue, so use at your own risk;
+* Regex4j does not support regex compilation, e.g. ```RegexOptions.Compiled```, ```RegexOptions.Precompiled``` and ```Regex.compileToAssemble()```;
 * ...
 
 ## Copyright
