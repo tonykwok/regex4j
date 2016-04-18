@@ -4,7 +4,7 @@ Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's 
 
 ## Getting Started
 
-The usage of regex4j is much samilar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
+The usage of Regex4j is much samilar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
 
 > **Tips**
 >- Regex4j does not support verbatim string literals, that's to say, you have to add ```\``` explicitly when you try to translate some regex patterns from C# to Java;
@@ -94,4 +94,4 @@ Here are some webpages focusing on ```Regular Expression Optimization```, just f
 ## Copyright
 
 * Copyright (C) The JXTRAS Project and Contributors
-* Copyright (c) .NET Foundation and Contributors
+* Copyright (C) .NET Foundation and Contributors
