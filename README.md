@@ -1,10 +1,10 @@
 ## Welcome to Regex4j!
 
-Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's .Net Core Libraries written in Java as compensation for Java built-in regex engine, meanwhile, avoids the ```StackOverflowError``` issues ([#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476)), which have been in the ```java.util.regex``` package since Java 1.4 and still exist in latest JDK.
+Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's .Net Core Libraries written in Java as compensation for Java built-in regex engine, meanwhile, avoids the ```StackOverflowError``` issues ([#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476)), which have been in the ```java.util.regex``` package since Java 1.4 and still exist in the latest JDK.
 
 ## Getting Started
 
-The usage of Regex4j is much samilar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
+The usage of Regex4j is much similar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
 
 > **Tips**
 >- Regex4j does not support verbatim string literals, that's to say, you have to add the backslash character (```\```) explicitly for escape sequences when you try to translate some regex patterns from C# to Java
@@ -23,7 +23,7 @@ using System.Text.RegularExpressions;
 
 public class Application {
     public static void Main() {
-        string url = "ssh://tony.guo@github.com:29418";
+        string url = "git://tony.guo@github.com:29418/regex4j.git";
         Regex r = new Regex(@"^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/", RegexOptions.None, TimeSpan.FromMilliseconds(150));
         Match m = r.Match(url);
 
@@ -41,7 +41,7 @@ import jxtras.regex4j.Regex;
 
 public class Application {
     public static void main(String... args) {
-        String url = "ssh://tony.guo@github.com:29418";
+        String url = "git://tony.guo@github.com:29418/regex4j.git";
         Regex r = new Regex("^(?<proto>\\w+)://[^/]+?(?<port>:\\d+)?/", RegexOptions.None, 150 /* millisecond */);
         Match m = r.match(url);
 
@@ -58,14 +58,14 @@ Both of the above 2 code snippets should display the same following output:
 
 In this example, the regular expression pattern ```^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/``` is interpreted as shown in the following table:
 
-| Pattern            | Description
-|:-------------------|:-----------
-```^```              |Begin the match at the start of the string.
-```(?<proto>\w+)```  | Match one or more word characters. Name this group proto.
-```://```            | Match a colon followed by two slash marks.
-```[^/]+?```         | Match one or more occurrences (but as few as possible) of any character other than a slash mark.
-```(?<port>:\d+)?``` | Match zero or one occurrence of a colon followed by one or more digit characters. Name this group port.
-```/```              | Match a slash mark.
+| Pattern             | Description
+|:--------------------|:-----------
+|```^```              | Begin the match at the start of the string.
+|```(?<proto>\w+)```  | Match one or more word characters. Name this group proto.
+|```://```            | Match a colon followed by two slash marks.
+|```[^/]+?```         | Match one or more occurrences (but as few as possible) of any character other than a slash mark.
+|```(?<port>:\d+)?``` | Match zero or one occurrence of a colon followed by one or more digit characters. Name this group port.
+|```/```              | Match a slash mark.
 
 Here're some topics on ```Regular Expression Optimization```, just for your reference.
 
@@ -75,7 +75,7 @@ Here're some topics on ```Regular Expression Optimization```, just for your refe
 
 ## Limitations
 
-* Regex4j does not support ```CultureInfo```, though Java has its own coresponding class called ```Locale```, they're completely different
+* Regex4j does not support ```CultureInfo```, though Java has its own corresponding class called ```Locale```, they're completely different
 * Regex4j does not fully support ```Unicode```, it may contain some unexpected issues, so use at your own risk
 * Regex4j does not support regex compilation, including ```RegexOptions.Compiled```, ```RegexOptions.Precompiled```, ```Regex.compileToAssemble()```
 
