@@ -45,6 +45,7 @@ package jxtras.regex;
 // the grouping stack and the longjump crawlstack, and provides
 // methods to push new subpattern match results into (or remove
 // backtracked results from) the Match instance.
+// @author  Tony Guo <tony.guo.peng@gmail.com>
 public abstract class RegexRunner {
     protected int runtextbeg;          // beginning of text to search
     protected int runtextend;          // end of text to search

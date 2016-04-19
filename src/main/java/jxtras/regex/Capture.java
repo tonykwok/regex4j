@@ -46,6 +46,8 @@ package jxtras.regex;
  *     last captured group, whereas the {@code Capture} objects in the {@link CaptureCollection}
  *     provide information about all subexpression captures.</li>
  * </ul>
+ *
+ * @author  Tony Guo <tony.guo.peng@gmail.com>
  */
 public class Capture {
     /*

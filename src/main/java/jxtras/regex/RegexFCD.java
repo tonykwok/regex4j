@@ -39,6 +39,8 @@ import java.util.Locale;
  * <p/>
  * This step is as simple as walking the tree and emitting
  * sequences of codes.
+ *
+ * @author  Tony Guo <tony.guo.peng@gmail.com>
  */
 final class RegexFCD {
     private int[] _intStack;

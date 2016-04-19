@@ -43,6 +43,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * <p/>
  * <p>The Regex class represents an immutable, compiled regular expression. Also contains static
  * methods that allow use of regular expressions without instantiating a Regex explicitly.</p>
+ *
+ * @author  Tony Guo <tony.guo.peng@gmail.com>
  */
 public class Regex implements Serializable {
     private static final long serialVersionUID = 5073258162644648461L;

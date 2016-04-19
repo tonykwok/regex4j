@@ -36,6 +36,7 @@ import java.util.Map;
 // The RegexReplacement class represents a substitution string for
 // use when using regexs to search/replace, etc. It's logically
 // a sequence intermixed (1) static finalant strings and (2) group numbers.
+// @author  Tony Guo <tony.guo.peng@gmail.com>
 final class RegexReplacement {
     /*
      * Since RegexReplacement shares the same parser as Regex,

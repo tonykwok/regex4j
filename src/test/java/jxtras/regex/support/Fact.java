@@ -24,29 +24,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package jxtras.regex;
+package jxtras.regex.support;
 
-/**
- * <p>You can use a {@code MatchEvaluator} delegate method to perform a custom verification or
- * manipulation operation for each match found by a replacement method such as
- * {@link Regex#replace(String, MatchEvaluator)}.</p>
- *
- * <p>For each matched string, the {@link Regex#replace(String, MatchEvaluator)} method calls the
- * {@code MatchEvaluator} delegate method with a {@link Match} object that represents the match.</p>
- *
- * <p>The delegate method performs whatever processing you prefer and returns a string that the
- * {@link Regex#replace(String, MatchEvaluator)} method substitutes for the matched string.</p>
- *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
- */
-public interface MatchEvaluator {
-    /**
-     * <p>This callback method is called each time a regular expression match is found during a
-     * {@link RegexReplacement#replace} method operation.</p>
-     *
-     * @param match The {@link Match} object that represents a single regular expression match
-     *              during a {@link RegexReplacement#replace} method operation.
-     * @return A string.
-     */
-    public abstract String evaluate(Match match);
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Fact {
+
 }

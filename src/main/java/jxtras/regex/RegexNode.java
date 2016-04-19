@@ -66,6 +66,8 @@ import java.util.List;
 // Two integers (for the looping constructs) are stored in
 // _operands, an an object (either a string or a set)
 // is stored in _data
+
+// @author  Tony Guo <tony.guo.peng@gmail.com>
 final class RegexNode {
     // RegexNode types
 

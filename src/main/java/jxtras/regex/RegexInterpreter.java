@@ -33,6 +33,7 @@ import java.util.Locale;
 // This RegexInterpreter class is internal to the RegularExpression package.
 // It executes a block of regular expression codes while consuming
 // input.
+// @author  Tony Guo <tony.guo.peng@gmail.com>
 final class RegexInterpreter extends RegexRunner {
     int runoperator;
     int[] runcodes;

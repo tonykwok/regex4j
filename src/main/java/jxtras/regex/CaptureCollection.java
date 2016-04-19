@@ -51,6 +51,8 @@ import java.util.Iterator;
  * <p>To iterate through the members of the collection, you should use the collection iteration
  * construct ({@code for (Capture g : CaptureCollection)}) instead of retrieving the
  * {@link java.util.Iterator} that is returned by the {@link #iterator()} method.</p>
+ *
+ * @author  Tony Guo <tony.guo.peng@gmail.com>
  */
 public class CaptureCollection implements Iterable<Capture> {
     /*

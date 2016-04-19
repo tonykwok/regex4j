@@ -26,27 +26,40 @@
 
 package jxtras.regex;
 
-/**
- * <p>You can use a {@code MatchEvaluator} delegate method to perform a custom verification or
- * manipulation operation for each match found by a replacement method such as
- * {@link Regex#replace(String, MatchEvaluator)}.</p>
- *
- * <p>For each matched string, the {@link Regex#replace(String, MatchEvaluator)} method calls the
- * {@code MatchEvaluator} delegate method with a {@link Match} object that represents the match.</p>
- *
- * <p>The delegate method performs whatever processing you prefer and returns a string that the
- * {@link Regex#replace(String, MatchEvaluator)} method substitutes for the matched string.</p>
- *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
- */
-public interface MatchEvaluator {
-    /**
-     * <p>This callback method is called each time a regular expression match is found during a
-     * {@link RegexReplacement#replace} method operation.</p>
-     *
-     * @param match The {@link Match} object that represents a single regular expression match
-     *              during a {@link RegexReplacement#replace} method operation.
-     * @return A string.
-     */
-    public abstract String evaluate(Match match);
+import jxtras.regex.support.Strings;
+import jxtras.regex.support.Assert;
+import jxtras.regex.support.Fact;
+
+public class EscapeUnescapeTests {
+    /*
+    * Tested Methods:
+    * public static String Escape(String str);     round tripping "#$^*+(){}<>\\|. "
+    * public static String Unescape(string str);
+    */
+    @Fact
+    public static void EscapeUnescape() {
+        // Global Variables used for all tests
+        String strLoc = "Loc_000oo";
+        String strValue = Strings.EMPTY;
+        int iCountErrors = 0;
+        int iCountTestcases = 0;
+
+        try {
+            strLoc = "Loc_498yg";
+            iCountTestcases++;
+            String s1 = "#$^*+(){}<>\\|. ";
+            String s2 = Regex.escape(s1);
+            String s3 = Regex.unescape(s2);
+            if (!s1.equals(s3)) {
+                iCountErrors++;
+                System.out.println("Err_234fsadg! does not match");
+            }
+        } catch (Exception exc_general) {
+            ++iCountErrors;
+            System.out.println("Error Err_8888yyy!  strLoc==" + strLoc + ", exc_general==" + exc_general.toString());
+        }
+
+        // Finish Diagnostics
+        Assert.Equal(0, iCountErrors);
+    }
 }

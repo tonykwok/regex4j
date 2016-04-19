@@ -33,6 +33,8 @@ package jxtras.regex;
  * directly from the {@link #value()} and {@link #index()} method. (That is, the {@code Group}
  * instance is equivalent to the last item of the collection returned by the {@link #captures()}
  * method, which reflects the last capture made by the capturing group.)</p>
+ *
+ * @author  Tony Guo <tony.guo.peng@gmail.com>
  */
 public class Group extends Capture {
     // The empty group object.

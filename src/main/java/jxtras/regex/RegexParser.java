@@ -44,6 +44,7 @@ import java.util.Map;
 // It would be nice to get rid of the comment modes, since the
 // ScanBlank() calls are just kind of duct-taped in.
 
+// @author  Tony Guo <tony.guo.peng@gmail.com>
 final class RegexParser {
     RegexNode _stack;
     RegexNode _group;

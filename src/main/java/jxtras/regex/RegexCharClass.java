@@ -55,6 +55,8 @@ import java.util.Map;
 //              we know if the character is in the set.
 //      m+1...n The categories.  This is a list of UnicodeCategory enum values which describe categories
 //              included in this class.
+
+// @author  Tony Guo <tony.guo.peng@gmail.com>
 final class RegexCharClass {
 
     /**

@@ -24,29 +24,51 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package jxtras.regex;
+package jxtras.regex.support;
 
-/**
- * <p>You can use a {@code MatchEvaluator} delegate method to perform a custom verification or
- * manipulation operation for each match found by a replacement method such as
- * {@link Regex#replace(String, MatchEvaluator)}.</p>
- *
- * <p>For each matched string, the {@link Regex#replace(String, MatchEvaluator)} method calls the
- * {@code MatchEvaluator} delegate method with a {@link Match} object that represents the match.</p>
- *
- * <p>The delegate method performs whatever processing you prefer and returns a string that the
- * {@link Regex#replace(String, MatchEvaluator)} method substitutes for the matched string.</p>
- *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
- */
-public interface MatchEvaluator {
-    /**
-     * <p>This callback method is called each time a regular expression match is found during a
-     * {@link RegexReplacement#replace} method operation.</p>
-     *
-     * @param match The {@link Match} object that represents a single regular expression match
-     *              during a {@link RegexReplacement#replace} method operation.
-     * @return A string.
-     */
-    public abstract String evaluate(Match match);
+import java.util.Objects;
+
+public class Assert {
+    public static void Fail(String message) {
+        throw new AssertionError("fail: " + message);
+    }
+
+    public static void True(boolean condition) {
+        if (condition) {
+            return;
+        }
+        throw new AssertionError("fail");
+    }
+
+    public static void True(boolean condition, String message) {
+        if (condition) {
+            return;
+        }
+        throw new AssertionError("fail: " + message);
+    }
+
+    public static void False(boolean condition) {
+        if (!condition) {
+            return;
+        }
+        throw new AssertionError("fail");
+    }
+
+    public static void False(boolean condition, String message) {
+        if (!condition) {
+            return;
+        }
+        throw new AssertionError("fail: " + message);
+    }
+
+    public static void Equal(Object A, Object B) {
+        if (Objects.deepEquals(A, B)) {
+            return;
+        }
+        throw new AssertionError("should be Equals");
+    }
+
+    public static void Throws(Class<? extends Throwable> cls) {
+        throw new AssertionError(cls + " should be occurred");
+    }
 }

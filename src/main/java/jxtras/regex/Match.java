@@ -86,6 +86,8 @@ import java.util.Set;
  * <li>You can use the {@link GroupCollection#get(String)} method to retrieve groups by the name of
  * the capturing group. Note that you can determine which named groups are present in a regular
  * expression by calling the instance {@link Regex#getGroupNames()} method.</li></ul>
+ *
+ * @author  Tony Guo <tony.guo.peng@gmail.com>
  */
 public class Match extends Group {
     // The empty match object.

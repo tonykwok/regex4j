@@ -54,6 +54,8 @@ import java.util.Map;
  * groups by calling the {@link Regex#getGroupNumbers()} and {@link Regex#getGroupNames()} methods,
  * respectively. Both are instance methods and require that you instantiate a {@link Regex} object
  * that represents the regular expression to be matched.</p>
+ *
+ * @author  Tony Guo <tony.guo.peng@gmail.com>
  */
 public class GroupCollection implements Iterable<Group> {
     /*

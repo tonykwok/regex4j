@@ -36,6 +36,8 @@ import java.util.Locale;
 // string and the text being searched, but usually, the longer
 // the string that is being searched for, the fewer characters
 // need to be examined.
+
+// @author  Tony Guo <tony.guo.peng@gmail.com>
 final class RegexBoyerMoore {
     int[] _positive;
     int[] _negativeASCII;

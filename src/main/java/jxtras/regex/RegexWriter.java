@@ -42,7 +42,7 @@ import java.util.Map;
 //
 // This step is as simple as walking the tree and emitting
 // sequences of codes.
-//
+// @author  Tony Guo <tony.guo.peng@gmail.com>
 final class RegexWriter {
     private int[] _intStack;
     private int _depth;

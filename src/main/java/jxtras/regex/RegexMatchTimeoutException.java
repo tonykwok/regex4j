@@ -62,6 +62,8 @@ import java.io.Serializable;
  *     method again. This can be repeated several times. However, the number of repetitions should
  *     be small in case the time-out is caused by excessive backtracking.</li>
  * </ul>
+ *
+ * @author  Tony Guo <tony.guo.peng@gmail.com>
  */
 public class RegexMatchTimeoutException extends RuntimeException implements Serializable {
 
