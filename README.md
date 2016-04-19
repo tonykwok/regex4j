@@ -45,14 +45,14 @@ public class Application {
         Regex r = new Regex("^(?<proto>\\w+)://[^/]+?(?<port>:\\d+)?/", RegexOptions.None, 150 /* millisecond */);
         Match m = r.match(url);
 
-        if (m.Success) {
+        if (m.success()) {
             System.out.println(m.groups().get("proto").value() + m.groups().get("port").value());
         }
     }
 }
 ```
 
-Both of these 2 examples display the same following output:
+Both of the above 2 code snippets should display the same following output:
 
         http:8080
 
