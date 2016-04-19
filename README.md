@@ -54,7 +54,7 @@ public class Application {
 
 Both of the above 2 code snippets should display the same following output:
 
-        ssh:29418
+    git:29418
 
 In this example, the regular expression pattern ```^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/``` is interpreted as shown in the following table:
 
