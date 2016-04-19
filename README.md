@@ -1,6 +1,6 @@
 ## Welcome to Regex4j!
 
-Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's .Net Core Libraries written in Java as compensation for Java built-in regex engine, meanwhile, avoids the ```StackOverflowError``` issue ([#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476)), which has been in the ```java.util.regex``` package since Java 1.4 and still exist in latest JDK.
+Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's .Net Core Libraries written in Java as compensation for Java built-in regex engine, meanwhile, avoids the ```StackOverflowError``` issues ([#6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [#6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [#8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476)), which have been in the ```java.util.regex``` package since Java 1.4 and still exist in latest JDK.
 
 ## Getting Started
 
@@ -76,8 +76,8 @@ Here're some topics on ```Regular Expression Optimization```, just for your refe
 ## Limitations
 
 * Regex4j does not support ```CultureInfo```, though Java has its own coresponding class called ```Locale```, they're completely different;
-* Regex4j does not fully support Unicode, it may contain some unexpected issues, so use at your own risk;
-* Regex4j does not support regex compilation, e.g. ```RegexOptions.Compiled```, ```RegexOptions.Precompiled``` and ```Regex.compileToAssemble()```;
+* Regex4j does not fully support ```Unicode```, it may contain some unexpected issues, so use at your own risk;
+* Regex4j does not support regex compilation, including ```RegexOptions.Compiled```, ```RegexOptions.Precompiled```, ```Regex.compileToAssemble()```, and so on;
 
 ## Copyright
 
