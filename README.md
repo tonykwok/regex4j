@@ -7,11 +7,11 @@ Regex4j is a port of ```System.Text.RegularExpressions``` module of Microsoft's 
 The usage of Regex4j is much samilar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
 
 > **Tips**
->- Regex4j does not support verbatim string literals, that's to say, you have to add ```\``` explicitly when you try to translate some regex patterns from C# to Java;
->- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range are ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off;
->- Regex4j does not support ```array-like``` element accessing either by index or by name, alternatively, you can use ```#get(...)```to archive what you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```;
->- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```;
->- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when you switch role from C# to Java;
+>- Regex4j does not support verbatim string literals, that's to say, you have to add the backslash character (```\```) explicitly for escape sequences when you try to translate some regex patterns from C# to Java
+>- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range are ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off
+>- Regex4j does not support ```array-like``` element accessing on ```Collection``` object, neither by index nor by name, alternatively, you can use ```#get(...)```to archive what you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```
+>- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```
+>- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when you switch role from C# to Java
 
 The following example demonstrates how to extract the protocol and port number from an ```URL``` and return the protocol followed by a colon followed by the port number.
 
@@ -23,7 +23,7 @@ using System.Text.RegularExpressions;
 
 public class Application {
     public static void Main() {
-        string url = "http://www.contoso.com:8080/letters/readme.html";
+        string url = "ssh://tony.guo@github.com:29418";
         Regex r = new Regex(@"^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/", RegexOptions.None, TimeSpan.FromMilliseconds(150));
         Match m = r.Match(url);
 
@@ -41,7 +41,7 @@ import jxtras.regex4j.Regex;
 
 public class Application {
     public static void main(String... args) {
-        String url = "http://www.contoso.com:8080/letters/readme.html";
+        String url = "ssh://tony.guo@github.com:29418";
         Regex r = new Regex("^(?<proto>\\w+)://[^/]+?(?<port>:\\d+)?/", RegexOptions.None, 150 /* millisecond */);
         Match m = r.match(url);
 
@@ -54,7 +54,7 @@ public class Application {
 
 Both of the above 2 code snippets should display the same following output:
 
-        http:8080
+        ssh:29418
 
 In this example, the regular expression pattern ```^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/``` is interpreted as shown in the following table:
 
@@ -75,9 +75,9 @@ Here're some topics on ```Regular Expression Optimization```, just for your refe
 
 ## Limitations
 
-* Regex4j does not support ```CultureInfo```, though Java has its own coresponding class called ```Locale```, they're completely different;
-* Regex4j does not fully support ```Unicode```, it may contain some unexpected issues, so use at your own risk;
-* Regex4j does not support regex compilation, including ```RegexOptions.Compiled```, ```RegexOptions.Precompiled```, ```Regex.compileToAssemble()```, and so on;
+* Regex4j does not support ```CultureInfo```, though Java has its own coresponding class called ```Locale```, they're completely different
+* Regex4j does not fully support ```Unicode```, it may contain some unexpected issues, so use at your own risk
+* Regex4j does not support regex compilation, including ```RegexOptions.Compiled```, ```RegexOptions.Precompiled```, ```Regex.compileToAssemble()```
 
 ## Copyright
 
