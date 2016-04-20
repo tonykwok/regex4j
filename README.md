@@ -13,7 +13,7 @@ The usage of Regex4j is much similar as ```System.Text.RegularExpressions```, he
 >- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```
 >- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when you switch role from C# to Java
 
-The following example demonstrates how to extract the protocol and port number from an ```URL``` and return the protocol followed by a colon followed by the port number.
+The following example demonstrates how to extract the protocol name and port number from an ```URL``` and return the protocol name followed by a colon followed by the port number.
 
 * C#
 
