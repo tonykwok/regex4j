@@ -23,7 +23,7 @@ using System.Text.RegularExpressions;
 
 public class Application {
     public static void Main() {
-        string url = "git://tony.guo@github.com:29418/regex4j.git";
+        string url = "ssh://github.com:29418/regex4j";
         Regex r = new Regex(@"^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/", RegexOptions.None, TimeSpan.FromMilliseconds(150));
         Match m = r.Match(url);
 
@@ -41,7 +41,7 @@ import jxtras.regex.Regex;
 
 public class Application {
     public static void main(String... args) {
-        String url = "git://tony.guo@github.com:29418/regex4j.git";
+        String url = "ssh://github.com:29418/regex4j";
         Regex r = new Regex("^(?<proto>\\w+)://[^/]+?(?<port>:\\d+)?/", RegexOptions.None, 150 /* millisecond */);
         Match m = r.match(url);
 
@@ -54,7 +54,7 @@ public class Application {
 
 Both of the above 2 code snippets should display the same following output:
 
-    git:29418
+    ssh:29418
 
 In this example, the regular expression pattern ```^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/``` is interpreted as shown in the following table:
 
