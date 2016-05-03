@@ -6,7 +6,6 @@ Regex4j is a port of the ```System.Text.RegularExpressions``` module of [Microso
 
 The usage of Regex4j is much similar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
 
-> **Tips**
 >- Regex4j does not support verbatim string literals, that's to say, you have to add the backslash character (```\```) explicitly for escape sequences when you try to translate some regex patterns from C# to Java
 >- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range are ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off
 >- Regex4j does not support ```array-like``` element accessing on ```Collection``` object, neither by index nor by name, alternatively, you can use ```#get(...)```to archive what you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```
