@@ -55,7 +55,8 @@ import java.util.Map;
  * respectively. Both are instance methods and require that you instantiate a {@link Regex} object
  * that represents the regular expression to be matched.</p>
  *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
+ * @author Tony Guo <tony.guo.peng@gmail.com>
+ * @since 1.0
  */
 public class GroupCollection implements Iterable<Group> {
     /*
@@ -84,7 +85,7 @@ public class GroupCollection implements Iterable<Group> {
     }
 
     /**
-     * Gets the number of groups.
+     * Gets the count of groups.
      */
     public int count() {
         return match.matchCount.length;

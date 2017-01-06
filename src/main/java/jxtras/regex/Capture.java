@@ -47,7 +47,8 @@ package jxtras.regex;
  *     provide information about all subexpression captures.</li>
  * </ul>
  *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
+ * @author Tony Guo <tony.guo.peng@gmail.com>
+ * @since 1.0
  */
 public class Capture {
     /*
@@ -128,6 +129,6 @@ public class Capture {
     }
 
     String description() {
-        return String.format("(I = %d, L = %d): %s", index, length, text);
+        return String.format("Capture (I = %d, L = %d): %s", index, length, text);
     }
 }

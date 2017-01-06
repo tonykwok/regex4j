@@ -52,7 +52,8 @@ import java.util.Iterator;
  * construct ({@code for (Capture g : CaptureCollection)}) instead of retrieving the
  * {@link java.util.Iterator} that is returned by the {@link #iterator()} method.</p>
  *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
+ * @author Tony Guo <tony.guo.peng@gmail.com>
+ * @since 1.0
  */
 public class CaptureCollection implements Iterable<Capture> {
     /*
@@ -179,8 +180,8 @@ public class CaptureCollection implements Iterable<Capture> {
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException(
-                    "remove() is not supported by the CaptureIterator.");
+            throw new UnsupportedOperationException
+                    ("remove() is not supported by the CaptureIterator.");
         }
     }
 }

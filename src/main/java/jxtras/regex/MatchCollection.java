@@ -61,7 +61,8 @@ import java.util.List;
  * construct ({@code for (Match m : MatchCollection)}) instead of retrieving the
  * {@link java.util.Iterator} that is returned by the {@link #iterator()} method.</p>
  *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
+ * @author Tony Guo <tony.guo.peng@gmail.com>
+ * @since 1.0
  */
 public class MatchCollection implements Iterable<Match> {
     private final Regex regex;

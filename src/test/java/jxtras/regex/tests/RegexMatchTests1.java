@@ -24,30 +24,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package jxtras.regex;
+package jxtras.regex.tests;
 
-/**
- * <p>You can use a {@code MatchEvaluator} delegate method to perform a custom verification or
- * manipulation operation for each match found by a replacement method such as
- * {@link Regex#replace(String, MatchEvaluator)}.</p>
- *
- * <p>For each matched string, the {@link Regex#replace(String, MatchEvaluator)} method calls the
- * {@code MatchEvaluator} delegate method with a {@link Match} object that represents the match.</p>
- *
- * <p>The delegate method performs whatever processing you prefer and returns a string that the
- * {@link Regex#replace(String, MatchEvaluator)} method substitutes for the matched string.</p>
- *
- * @author Tony Guo <tony.guo.peng@gmail.com>
- * @since 1.0
- */
-public interface MatchEvaluator {
-    /**
-     * <p>This callback method is called each time a regular expression match is found during a
-     * {@link RegexReplacement#replace} method operation.</p>
-     *
-     * @param match The {@link Match} object that represents a single regular expression match
-     *              during a {@link RegexReplacement#replace} method operation.
-     * @return A string.
-     */
-    String evaluate(Match match);
+public class RegexMatchTests1 {
 }

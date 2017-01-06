@@ -34,7 +34,8 @@ package jxtras.regex;
  * instance is equivalent to the last item of the collection returned by the {@link #captures()}
  * method, which reflects the last capture made by the capturing group.)</p>
  *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
+ * @author Tony Guo <tony.guo.peng@gmail.com>
+ * @since 1.0
  */
 public class Group extends Capture {
     // The empty group object.

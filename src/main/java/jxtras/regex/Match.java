@@ -87,7 +87,8 @@ import java.util.Set;
  * the capturing group. Note that you can determine which named groups are present in a regular
  * expression by calling the instance {@link Regex#getGroupNames()} method.</li></ul>
  *
- * @author  Tony Guo <tony.guo.peng@gmail.com>
+ * @author Tony Guo <tony.guo.peng@gmail.com>
+ * @since 1.0
  */
 public class Match extends Group {
     // The empty match object.
@@ -153,7 +154,7 @@ public class Match extends Group {
         this.textStart = startPosition;
         this.balancing = false;
 
-        // TODO: No need for an exception here.
+        // TODO: Do we need to throw an exception here?
         // This is only called internally, so we'll use an Assert instead.
         if (textBegin < 0 || textStart < textBegin || textEnd < textStart || text.length() < textEnd) {
             throw new IllegalArgumentException("The parameters are out of range.");
@@ -434,7 +435,6 @@ public class Match extends Group {
             return rgc;
         }
 
-// #if DEBUG
         @Override
         void dump() {
             if (captureMap != null) {
@@ -446,6 +446,5 @@ public class Match extends Group {
 
             super.dump();
         }
-// #endif
     }
 }

@@ -78,6 +78,12 @@ Here're some topics on ```Regular Expression Optimization```, just for your refe
 * Regex4j does not fully support ```Unicode```, it may contain some unexpected issues, so use at your own risk
 * Regex4j does not support regex compilation, including ```RegexOptions.Compiled```, ```RegexOptions.Precompiled```, ```Regex.compileToAssemble()```
 
+## Changelog
+
+96d5fcd645ec1503c738eaeb68842237b872ebbd Unused precompiler directives are removed from Regex ctor
+
+@see https://github.com/dotnet/corefx/commits/master/src/System.Text.RegularExpressions/src/System/Text/RegularExpressions
+
 ## Copyright
 
 * Copyright (C) The JXTRAS Project and Contributors
