@@ -36,7 +36,7 @@ public class Application {
 * Java
 
 ```java
-import jxtras.regex.Regex;
+import jxtras.regex.*;
 
 public class Application {
     public static void main(String... args) {
@@ -80,9 +80,9 @@ Here're some topics on ```Regular Expression Optimization```, just for your refe
 
 ## Changelog
 
-96d5fcd645ec1503c738eaeb68842237b872ebbd Unused precompiler directives are removed from Regex ctor
-
-@see https://github.com/dotnet/corefx/commits/master/src/System.Text.RegularExpressions/src/System/Text/RegularExpressions
+https://github.com/dotnet/corefx/commits/master/src/System.Text.RegularExpressions/src/System/Text/RegularExpressions
+* 96d5fcd645ec1503c738eaeb68842237b872ebbd Unused precompiler directives are removed from Regex ctor
+* x
 
 ## Copyright
 
