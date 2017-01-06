@@ -1,6 +1,6 @@
 ## Regex4j
 
-Regex4j is a port of the ```System.Text.RegularExpressions``` module of [Microsoft's .Net Core Libraries](https://github.com/dotnet/corefx) written in Java as compensation for the Java built-in regex engine, meanwhile, avoids the ```StackOverflowError``` issues ([JDK-6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [JDK-6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [JDK-8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476)), which have been in the ```java.util.regex``` package since Java 1.4 and still exist in the latest JDK.
+Regex4j is a [Regular Expression Engine](https://en.wikipedia.org/wiki/Regular_expression) ported from the ```System.Text.RegularExpressions``` module of [Microsoft's .Net Core Libraries](https://github.com/dotnet/corefx) for Java platform. As a compensation for the Java built-in Pattern class, with one of its advantages, you can avoid the ```StackOverflowError``` issues ([JDK-6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [JDK-6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [JDK-8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476)), which have been in the ```java.util.regex``` package since Java 1.4 and still exist in the latest JDK.
 
 ## Usage
 
