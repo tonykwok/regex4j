@@ -8,9 +8,9 @@ The usage of Regex4j is much similar as ```System.Text.RegularExpressions```, he
 
 >- Regex4j does not support verbatim string literals, that's to say, you have to add the backslash character (```\```) explicitly for escape sequences when you try to translate some regex patterns from C# to Java
 >- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range are ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off
->- Regex4j does not support ```array-like``` element accessing on ```Collection``` object, neither by index nor by name, alternatively, you can use ```#get(...)```to archive what you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```
+>- Regex4j does not support ```array-like``` element accessing on ```Collection``` object, neither by index nor by name, alternatively, you can use ```#get(...)```to achieve what you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```
 >- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```
->- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when you switch role from C# to Java
+>- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when switch from C# to Java
 
 The following example demonstrates how to extract the protocol name and port number from an ```URL``` and prints them to the console in the format of the protocol name followed by a colon followed by the port number.
 
