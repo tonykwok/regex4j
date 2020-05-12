@@ -1,16 +1,16 @@
 ## Regex4j
 
-Regex4j is a [Regular Expression Engine](https://en.wikipedia.org/wiki/Regular_expression) ported from the ```System.Text.RegularExpressions``` module of [Microsoft's .Net Core Libraries](https://github.com/dotnet/corefx) for Java platform. As a compensation for the Java built-in ```Pattern``` class, with one of its advantages, you can avoid the ```StackOverflowError``` issues ([JDK-6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [JDK-6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [JDK-8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476)), which have been in the ```java.util.regex``` package since Java 1.4 and still exist in the latest JDK.
+Regex4j is a [Regular Expression Engine](https://en.wikipedia.org/wiki/Regular_expression) ported from the ```System.Text.RegularExpressions``` module of [Microsoft's .Net Core](https://github.com/dotnet/core) for Java platform. As a compensation for the built-in ```Pattern``` class in JDK, with one of its advantages, you can avoid the ```StackOverflowError``` issues ([JDK-6337993](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6337993), [JDK-6882582](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6882582) and [JDK-8078476](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=8078476)), which have been in the ```java.util.regex``` package since Java 1.4 and still exist in the latest JDK.
 
 ## Usage
 
 The usage of Regex4j is much similar as ```System.Text.RegularExpressions```, here're some tips for you to get started quickly:
 
->- Regex4j does not support verbatim string literals, that's to say, you have to add the backslash character (```\```) explicitly for escape sequences when you try to translate some regex patterns from C# to Java
->- Regex4j does not support ```TimeSpan```, instead you can pass ```int``` values when constructs the ```Regex``` object. The valid range are ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off
->- Regex4j does not support ```array-like``` element accessing on ```Collection``` object, neither by index nor by name, alternatively, you can use ```#get(...)```to achieve what you want, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```
->- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```
->- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when switch from C# to Java
+- Regex4j does not support verbatim string literals, that's to say, you have to add the backslash character (```\```) explicitly for escape sequences when you try to translate some regex patterns from C# to Java
+- Regex4j does not support ```TimeSpan```, instead you should pass ```int``` values when constructs the ```Regex``` object. The valid range are ```[0, Regex.MAXIMUM_MATCH_TIMEOUT]```, and the default match timeout is ```Regex.INFINITE_MATCH_TIMEOUT``` which means match timeout is switched off
+- Regex4j does not support ```array-like``` element accessing on ```Collection``` object, neither by index nor by name, alternatively, you should use ```#get(...)```, e.g. ```GroupCollection.get(int index)``` or ```GroupCollection.get(String name)```
+- Regex4j does not support method calling without ```()```, e.g. ```Group.Value``` should always be replaced by ```Group.value()```
+- The last but most important thing is: method names in Regex4j are all written in ```lowerCamelCase```, pay much more attention to this when switch from C# to Java
 
 The following example demonstrates how to extract the protocol name and port number from an ```URL``` and prints them to the console in the format of the protocol name followed by a colon followed by the port number.
 
@@ -66,11 +66,11 @@ In this example, the regular expression pattern ```^(?<proto>\w+)://[^/]+?(?<por
 |```(?<port>:\d+)?``` | Match zero or one occurrence of a colon followed by one or more digit characters. Name this group port.
 |```/```              | Match a slash mark.
 
-Here're some topics on ```Regular Expression Optimization```, just for your reference.
+Here're some topics on ```Regular Expression Optimization```, just for your reference:
 
->* http://www.javaworld.com/article/2077757/core-java/optimizing-regular-expressions-in-java.html
->* http://www.informit.com/guides/content.aspx?g=dotnet&seqNum=692
->* https://msdn.microsoft.com/en-us/library/gg578045(v=vs.110).aspx?cs-save-lang=1&cs-lang=vb#code-snippet-1
+* http://www.javaworld.com/article/2077757/core-java/optimizing-regular-expressions-in-java.html
+* http://www.informit.com/guides/content.aspx?g=dotnet&seqNum=692
+* https://msdn.microsoft.com/en-us/library/gg578045(v=vs.110).aspx?cs-save-lang=1&cs-lang=vb#code-snippet-1
 
 ## Limitations
 
@@ -82,9 +82,7 @@ Here're some topics on ```Regular Expression Optimization```, just for your refe
 
 https://github.com/dotnet/corefx/commits/master/src/System.Text.RegularExpressions/src/System/Text/RegularExpressions
 * 96d5fcd645ec1503c738eaeb68842237b872ebbd Unused precompiler directives are removed from Regex ctor
-* x
 
-## Copyright
+## License
 
-* Copyright (C) The JXTRAS Project and Contributors
-* Copyright (C) .NET Foundation and Contributors
+Since [.NET Core](https://github.com/dotnet/core) is licensed under the MIT License, Regex4J is also under this license.
